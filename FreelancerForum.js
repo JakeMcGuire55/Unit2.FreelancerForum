@@ -11,11 +11,11 @@ const freelancers = [
 
 const myTable = document.querySelector("table");
 
-// function updateEntry() {
-//   for (let i = 2; i < freelancers.length; i++) {
-//     const currentItem = freelancers[i];
-//     const newEntry = document.createElement("tr");
-//     newEntry.textContent = currentItem;
-//     myTable.appendChild(newEntry);
-//   }
-// }
+function updateEntry() {
+  for (let i = 2; i < freelancers.length; i++) {
+    const currentItem = freelancers[i];
+    const newEntry = document.createElement("tr");
+    newEntry.textContent = currentItem;
+    myTable.appendChild(newEntry);
+  }
+}
