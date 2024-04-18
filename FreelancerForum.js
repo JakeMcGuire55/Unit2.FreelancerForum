@@ -11,11 +11,18 @@ const freelancers = [
 
 
 //Function 2: Calculating the Average Starting Prices
-function averagePrice(freelancers){
+const avgPrice = document.getElementById("AvgStartPrice")
+// const table = document.querySelector(".MainTable")
+function averagePrice(){
+    let sum = 80;
     for (let i = 0; i < freelancers.length; i++) {
-        const element = freelancers[i].price;
-        console.log(element);
-    }
+        const element = freelancers[i];
+        let totalPrice = element.price
+        sum += +totalPrice;
+    } 
+    const average = sum / freelancers.length;
+    document.getElementById("AvgStartPrice").textContent = Math.round(average);
+    // return average;
 }
 
 
@@ -29,12 +36,13 @@ function stopInterval(){
 
 //Final Function: "Renderer"
 function createFreeLancer(freelancers){
+    stopInterval(newTimer);
     const table = document.querySelector('table')
     const newFreelancer = freelancers.shift()
     const newTr = document.createElement('tr')
     newTr.innerHTML = `<td>${newFreelancer.name}</td><td>${newFreelancer.price}</td><td>${newFreelancer.occupation}</td>`
     table.appendChild(newTr);
-    stopInterval(newTimer);
+    averagePrice();
 }
 
 const newTimer = setInterval(()=>createFreeLancer(freelancers), 2000)
